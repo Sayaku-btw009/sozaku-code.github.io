@@ -1,0 +1,606 @@
+/* ============================================================
+   1. VARIABLES : thème noir et vert
+   ============================================================ */
+:root {
+  --bg: #000000;
+  --panel: #050d07;
+  --panel-2: #0a1a0e;
+  --border: #14361d;
+  --text: #d4f8dc;
+  --muted: #6fa67c;
+  --accent: #00ff41;
+  --accent-rgb: 0, 255, 65;
+  --accent-soft: rgba(var(--accent-rgb), 0.15);
+  --error: #ff6b6b;
+  --code-font: "Fira Code", Consolas, "Courier New", monospace;
+  --radius: 12px;
+}
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(var(--accent-rgb), 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--accent-rgb), 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* ============================================================
+   3. EN-TÊTE
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 14px 0;
+}
+
+.logo {
+  font-family: var(--code-font);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.logo span,
+.accent {
+  color: var(--accent);
+}
+
+.site-nav ul {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.site-nav a:hover {
+  color: var(--text);
+}
+
+/* ============================================================
+   4. BOUTONS
+   ============================================================ */
+.btn {
+  display: inline-block;
+  padding: 12px 26px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--accent);
+  border: 0;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(var(--accent-rgb), 0.35);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-small {
+  padding: 9px 18px;
+  font-size: 0.9rem;
+}
+
+.btn-full {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* ============================================================
+   5. ACCUEIL
+   ============================================================ */
+.hero {
+  padding: 110px 0 90px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 0%, rgba(var(--accent-rgb), 0.18), transparent 60%);
+}
+
+.badge {
+  display: inline-block;
+  margin: 0 0 20px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid rgba(var(--accent-rgb), 0.4);
+  border-radius: 999px;
+}
+
+.hero h1 {
+  margin: 0 0 16px;
+  font-family: var(--code-font);
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+  text-shadow: 0 0 18px rgba(var(--accent-rgb), 0.35);
+}
+
+.terminal-line {
+  min-height: 1.8em;
+  margin: 0 0 24px;
+  font-family: var(--code-font);
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.prompt {
+  margin-right: 10px;
+  color: var(--accent);
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  margin-left: 2px;
+  background: var(--accent);
+  vertical-align: text-bottom;
+  animation: clignote 1s infinite;
+}
+
+@keyframes clignote {
+  50% {
+    opacity: 0;
+  }
+}
+
+.lead {
+  max-width: 560px;
+  margin: 0 auto 36px;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+/* ============================================================
+   6. SECTIONS
+   ============================================================ */
+.services,
+.steps,
+.pricing,
+.request,
+.delivery {
+  padding: 90px 0;
+}
+
+.steps,
+.pricing,
+.delivery {
+  border-top: 1px solid var(--border);
+}
+
+.section-head {
+  margin-bottom: 44px;
+  text-align: center;
+}
+
+.section-head h2 {
+  margin: 0 0 12px;
+  font-size: 2rem;
+}
+
+.section-head p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--muted);
+}
+
+/* ----- Cartes (services et tarifs) ----- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.card,
+.step {
+  padding: 28px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.card-icon {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-family: var(--code-font);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.card h3,
+.step h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+.card p,
+.step p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ----- Tarifs ----- */
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card .price {
+  margin: 14px 0 20px;
+  font-family: var(--code-font);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.pricing-card .btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+/* ----- Étapes ----- */
+.step-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step-num {
+  display: block;
+  margin-bottom: 14px;
+  font-family: var(--code-font);
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+/* ============================================================
+   7. FORMULAIRES
+   ============================================================ */
+.request-form {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 36px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 0 30px rgba(var(--accent-rgb), 0.08);
+}
+
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.field {
+  margin: 0 0 22px;
+}
+
+.field label,
+.field legend {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #3d6b48;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.2);
+}
+
+.field textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* ----- Boutons de choix du type de code ----- */
+.type-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.type-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 14px 10px;
+  font-family: var(--code-font);
+  font-size: 0.95rem;
+  color: var(--muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.type-btn small {
+  font-size: 0.8rem;
+}
+
+.type-btn:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.type-btn[aria-pressed="true"] {
+  font-weight: 700;
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 18px rgba(var(--accent-rgb), 0.35);
+}
+
+.type-btn[aria-pressed="true"] small {
+  color: #04270e;
+}
+
+.field-error {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  color: var(--error);
+}
+
+/* ----- Message après l'envoi ----- */
+.form-status {
+  min-height: 1.5em;
+  margin: 18px 0 0;
+  text-align: center;
+}
+
+.form-status.success {
+  color: var(--accent);
+}
+
+.form-status.error {
+  color: var(--error);
+}
+
+/* Champ anti-spam : caché aux visiteurs, rempli uniquement par les robots */
+.pot-de-miel {
+  position: absolute;
+  left: -9999px;
+}
+
+/* ----- Bloc paiement ----- */
+.payment-box {
+  max-width: 680px;
+  margin: 28px auto 0;
+  padding: 28px 36px;
+  text-align: center;
+  background: var(--panel-2);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: 0 0 30px rgba(var(--accent-rgb), 0.12);
+}
+
+.payment-box h3 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+.payment-box p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.payment-box .btn {
+  margin: 20px 0 16px;
+}
+
+.payment-note {
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   8. LIVRAISON : questions fréquentes
+   ============================================================ */
+.faq {
+  max-width: 760px;
+  margin: 0 auto 60px;
+}
+
+.faq-item {
+  margin-bottom: 12px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s;
+}
+
+.faq-item[open] {
+  border-color: var(--accent);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-family: var(--code-font);
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-item p {
+  margin: 0;
+  padding: 0 22px 20px;
+  color: var(--muted);
+}
+
+.form-title {
+  margin: 0 0 24px;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+/* ============================================================
+   9. PIED DE PAGE
+   ============================================================ */
+.site-footer {
+  padding: 28px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* ============================================================
+   10. PETITS ÉCRANS
+   ============================================================ */
+@media (max-width: 640px) {
+  .site-nav {
+    display: none;
+  }
+
+  .hero {
+    padding: 80px 0 60px;
+  }
+
+  .section-head h2 {
+    font-size: 1.6rem;
+  }
+
+  .request-form {
+    padding: 22px;
+  }
+
+  .payment-box {
+    padding: 22px;
+  }
+}
+
+/* ============================================================
+   11. ACCESSIBILITÉ : réduire les animations si demandé
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

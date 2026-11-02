@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="sozaku code : envoie ton projet, choisis le type de code et reçois ton code sur mesure.">
+  <title>sozaku code | Code sur mesure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">sozaku <span>code</span></a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#etapes">Fonctionnement</a></li>
+          <li><a href="#tarifs">Tarifs</a></li>
+          <li><a href="#livraison">Livraison</a></li>
+        </ul>
+      </nav>
+      <a href="#demande" class="btn btn-small">Demander un projet</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="badge">Code sur mesure</p>
+        <h1>Ton projet, <span class="accent">codé pour toi</span>.</h1>
+        <p class="terminal-line">
+          <span class="prompt">$</span>
+          <span id="typed"></span><span class="cursor" aria-hidden="true"></span>
+        </p>
+        <p class="lead">Décris ton projet et choisis le type de code dont tu as besoin. Je prépare ton code et je te l'envoie par email.</p>
+        <a href="#demande" class="btn">Envoyer mon projet</a>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Ce que je peux coder pour toi</h2>
+          <p>Du site simple au script sur mesure, je m'adapte à ton besoin.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <span class="card-icon">&lt;/&gt;</span>
+            <h3>Site web</h3>
+            <p>Pages HTML et mise en forme CSS, propres, responsives et faciles à modifier.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon">{ }</span>
+            <h3>Interactivité</h3>
+            <p>Boutons, formulaires, animations et comportements dynamiques en JavaScript.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon">&gt;_</span>
+            <h3>Scripts Python</h3>
+            <p>Automatisation de tâches, traitement de fichiers et petits outils en ligne de commande.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon">*</span>
+            <h3>Sur mesure</h3>
+            <p>Un autre besoin ? Décris-le et nous verrons ensemble ce qui est possible.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="etapes" class="steps">
+      <div class="container">
+        <div class="section-head">
+          <h2>Comment ça marche</h2>
+          <p>Trois étapes simples, de ta demande jusqu'à ton code.</p>
+        </div>
+        <ol class="step-list">
+          <li class="step">
+            <span class="step-num">01</span>
+            <h3>Tu décris ton projet</h3>
+            <p>Titre, besoin et type de code, à remplir dans le formulaire ci-dessous.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">02</span>
+            <h3>Tu règles ton projet</h3>
+            <p>Après ta demande, les instructions de paiement s'affichent avec le montant à régler.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">03</span>
+            <h3>Tu reçois ton code</h3>
+            <p>Le code arrive directement dans ta boîte mail, prêt à être utilisé.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="tarifs" class="pricing">
+      <div class="container">
+        <div class="section-head">
+          <h2>Tarifs</h2>
+          <p>Un prix clair pour chaque type de code. Choisis une offre pour la sélectionner automatiquement dans le formulaire.</p>
+        </div>
+        <!-- Les cartes de tarifs sont créées automatiquement par le JavaScript -->
+        <div class="grid" id="zone-tarifs"></div>
+      </div>
+    </section>
+
+    <section id="demande" class="request">
+      <div class="container">
+        <div class="section-head">
+          <h2>Envoie ta demande</h2>
+          <p>Plus ta description est précise, plus le résultat sera proche de ce que tu imagines.</p>
+        </div>
+
+        <form class="request-form" id="formulaire" action="https://formspree.io/f/xgaanjdb" method="POST">
+          <input type="hidden" name="_subject" value="Nouvelle demande de projet - sozaku code">
+
+          <div class="field">
+            <label for="nom">Nom complet</label>
+            <input type="text" id="nom" name="nom" placeholder="Ex. Youssef Benali" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="ton@email.com" required>
+          </div>
+
+          <div class="field">
+            <label for="titre">Titre du projet</label>
+            <input type="text" id="titre" name="titre" placeholder="Ex. Site vitrine pour mon restaurant" required>
+          </div>
+
+          <fieldset class="field">
+            <legend>Type de code</legend>
+            <!-- Les boutons de type sont créés automatiquement par le JavaScript -->
+            <div class="type-grid" id="zone-types"></div>
+            <input type="hidden" id="type-de-code" name="type_de_code">
+            <input type="hidden" id="montant" name="montant">
+            <p class="field-error" id="erreur-type" role="alert" hidden>Choisis un type de code.</p>
+          </fieldset>
+
+          <div class="field">
+            <label for="description">Description du projet</label>
+            <textarea id="description" name="description" rows="6" placeholder="Fonctionnalités souhaitées, design, contraintes..." required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="delai">Délai souhaité</label>
+            <select id="delai" name="delai">
+              <option value="Pas pressé">Pas pressé</option>
+              <option value="Sous 1 semaine">Sous 1 semaine</option>
+              <option value="Urgent">Urgent</option>
+            </select>
+          </div>
+
+          <!-- Champ anti-spam : invisible pour les visiteurs -->
+          <input type="text" name="_gotcha" class="pot-de-miel" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <button type="submit" class="btn btn-full" id="bouton-envoi">Envoyer ma demande</button>
+          <p class="form-status" id="statut" role="status" aria-live="polite"></p>
+        </form>
+
+        <!-- Affiché après l'envoi réussi de la demande -->
+        <div class="payment-box" id="zone-paiement" hidden>
+          <h3>Paiement</h3>
+          <p id="texte-paiement"></p>
+          <a href="#" class="btn btn-full" id="lien-paiement" target="_blank" rel="noopener" hidden>Payer maintenant</a>
+          <p class="payment-note">Le paiement se fait par virement bancaire. Nous ne te demanderons jamais tes coordonnées bancaires par email.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="livraison" class="delivery">
+      <div class="container">
+        <div class="section-head">
+          <h2>Problème de livraison du code</h2>
+          <p>Ton code n'est pas arrivé, il est incomplet ou il ne fonctionne pas ? Voici les situations les plus fréquentes.</p>
+        </div>
+
+        <div class="faq">
+          <details class="faq-item" open>
+            <summary>Comment se passe le paiement ?</summary>
+            <p>Après l'envoi de ta demande, le montant de ton offre s'affiche avec les instructions de virement. Le code est livré une fois le paiement reçu.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Je n'ai pas reçu mon code</summary>
+            <p>Vérifie tes spams et l'onglet Promotions de ta boîte mail. Le code est envoyé à l'adresse indiquée dans ta demande. S'il n'est pas arrivé dans le délai choisi, signale-le avec le formulaire ci-dessous.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Le fichier est vide ou incomplet</summary>
+            <p>Indique précisément ce qui manque, avec le titre de ton projet. Nous vérifions le fichier et te renvoyons une version complète.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Le code ne fonctionne pas chez moi</summary>
+            <p>Si ton code est composé de plusieurs fichiers, vérifie qu'ils sont dans le même dossier et que leurs noms n'ont pas été modifiés. Copie ensuite le message d'erreur exact et envoie-le-nous.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Je veux modifier le code livré</summary>
+            <p>Décris la modification souhaitée dans le formulaire. Nous te confirmerons si elle est incluse ou si elle fait l'objet d'une nouvelle demande.</p>
+          </details>
+        </div>
+
+        <h3 class="form-title">Signaler un problème</h3>
+
+        <form class="request-form" id="formulaire-livraison" action="https://formspree.io/f/xgaanjdb" method="POST">
+          <input type="hidden" name="_subject" value="Problème de livraison - sozaku code">
+
+          <div class="field">
+            <label for="liv-nom">Nom complet</label>
+            <input type="text" id="liv-nom" name="nom" placeholder="Ton nom" required>
+          </div>
+
+          <div class="field">
+            <label for="liv-email">Email</label>
+            <input type="email" id="liv-email" name="email" placeholder="L'adresse utilisée pour ta demande" required>
+          </div>
+
+          <div class="field">
+            <label for="liv-projet">Titre du projet</label>
+            <input type="text" id="liv-projet" name="projet" placeholder="Pour retrouver ta demande" required>
+          </div>
+
+          <div class="field">
+            <label for="liv-probleme">Type de problème</label>
+            <select id="liv-probleme" name="probleme" required>
+              <option value="" disabled selected>-- Choisir --</option>
+              <option value="Code non reçu">Code non reçu</option>
+              <option value="Fichier vide ou incomplet">Fichier vide ou incomplet</option>
+              <option value="Le code ne fonctionne pas">Le code ne fonctionne pas</option>
+              <option value="Autre problème">Autre problème</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="liv-message">Description</label>
+            <textarea id="liv-message" name="message" rows="5" placeholder="Décris le problème le plus précisément possible, avec le message d'erreur s'il y en a un." required></textarea>
+          </div>
+
+          <!-- Champ anti-spam : invisible pour les visiteurs -->
+          <input type="text" name="_gotcha" class="pot-de-miel" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <button type="submit" class="btn btn-full" id="bouton-livraison">Envoyer le signalement</button>
+          <p class="form-status" id="statut-livraison" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="annee"></span> sozaku code. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="sozaku code : envoie ton projet, choisis le type de code et reçois ton code sur mesure.">
+  <title>sozaku code | Code sur mesure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">sozaku <span>code</span></a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#etapes">Fonctionnement</a></li>
+          <li><a href="#tarifs">Tarifs</a></li>
+          <li><a href="#livraison">Livraison</a></li>
+        </ul>
+      </nav>
+      <a href="#demande" class="btn btn-small">Demander un projet</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="badge">Code sur mesure</p>
+        <h1>Ton projet, <span class="accent">codé pour toi</span>.</h1>
+        <p class="terminal-line">
+          <span class="prompt">$</span>
+          <span id="typed"></span><span class="cursor" aria-hidden="true"></span>
+        </p>
+        <p class="lead">Décris ton projet et choisis le type de code dont tu as besoin. Je prépare ton code et je te l'envoie par email.</p>
+        <a href="#demande" class="btn">Envoyer mon projet</a>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Ce que je peux coder pour toi</h2>
+          <p>Du site simple au script sur mesure, je m'adapte à ton besoin.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <span class="card-icon">&lt;/&gt;</span>
+            <h3>Site web</h3>
+            <p>Pages HTML et mise en forme CSS, propres, responsives et faciles à modifier.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon">{ }</span>
+            <h3>Interactivité</h3>
+            <p>Boutons, formulaires, animations et comportements dynamiques en JavaScript.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon">&gt;_</span>
+            <h3>Scripts Python</h3>
+            <p>Automatisation de tâches, traitement de fichiers et petits outils en ligne de commande.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon">*</span>
+            <h3>Sur mesure</h3>
+            <p>Un autre besoin ? Décris-le et nous verrons ensemble ce qui est possible.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="etapes" class="steps">
+      <div class="container">
+        <div class="section-head">
+          <h2>Comment ça marche</h2>
+          <p>Trois étapes simples, de ta demande jusqu'à ton code.</p>
+        </div>
+        <ol class="step-list">
+          <li class="step">
+            <span class="step-num">01</span>
+            <h3>Tu décris ton projet</h3>
+            <p>Titre, besoin et type de code, à remplir dans le formulaire ci-dessous.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">02</span>
+            <h3>Tu règles ton projet</h3>
+            <p>Après ta demande, les instructions de paiement s'affichent avec le montant à régler.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">03</span>
+            <h3>Tu reçois ton code</h3>
+            <p>Le code arrive directement dans ta boîte mail, prêt à être utilisé.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="tarifs" class="pricing">
+      <div class="container">
+        <div class="section-head">
+          <h2>Tarifs</h2>
+          <p>Un prix clair pour chaque type de code. Choisis une offre pour la sélectionner automatiquement dans le formulaire.</p>
+        </div>
+        <!-- Les cartes de tarifs sont créées automatiquement par le JavaScript -->
+        <div class="grid" id="zone-tarifs"></div>
+      </div>
+    </section>
+
+    <section id="demande" class="request">
+      <div class="container">
+        <div class="section-head">
+          <h2>Envoie ta demande</h2>
+          <p>Plus ta description est précise, plus le résultat sera proche de ce que tu imagines.</p>
+        </div>
+
+        <form class="request-form" id="formulaire" action="https://formspree.io/f/xgaanjdb" method="POST">
+          <input type="hidden" name="_subject" value="Nouvelle demande de projet - sozaku code">
+
+          <div class="field">
+            <label for="nom">Nom complet</label>
+            <input type="text" id="nom" name="nom" placeholder="Ex. Youssef Benali" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="ton@email.com" required>
+          </div>
+
+          <div class="field">
+            <label for="titre">Titre du projet</label>
+            <input type="text" id="titre" name="titre" placeholder="Ex. Site vitrine pour mon restaurant" required>
+          </div>
+
+          <fieldset class="field">
+            <legend>Type de code</legend>
+            <!-- Les boutons de type sont créés automatiquement par le JavaScript -->
+            <div class="type-grid" id="zone-types"></div>
+            <input type="hidden" id="type-de-code" name="type_de_code">
+            <input type="hidden" id="montant" name="montant">
+            <p class="field-error" id="erreur-type" role="alert" hidden>Choisis un type de code.</p>
+          </fieldset>
+
+          <div class="field">
+            <label for="description">Description du projet</label>
+            <textarea id="description" name="description" rows="6" placeholder="Fonctionnalités souhaitées, design, contraintes..." required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="delai">Délai souhaité</label>
+            <select id="delai" name="delai">
+              <option value="Pas pressé">Pas pressé</option>
+              <option value="Sous 1 semaine">Sous 1 semaine</option>
+              <option value="Urgent">Urgent</option>
+            </select>
+          </div>
+
+          <!-- Champ anti-spam : invisible pour les visiteurs -->
+          <input type="text" name="_gotcha" class="pot-de-miel" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <button type="submit" class="btn btn-full" id="bouton-envoi">Envoyer ma demande</button>
+          <p class="form-status" id="statut" role="status" aria-live="polite"></p>
+        </form>
+
+        <!-- Affiché après l'envoi réussi de la demande -->
+        <div class="payment-box" id="zone-paiement" hidden>
+          <h3>Paiement</h3>
+          <p id="texte-paiement"></p>
+          <a href="#" class="btn btn-full" id="lien-paiement" target="_blank" rel="noopener" hidden>Payer maintenant</a>
+          <p class="payment-note">Le paiement se fait par virement bancaire. Nous ne te demanderons jamais tes coordonnées bancaires par email.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="livraison" class="delivery">
+      <div class="container">
+        <div class="section-head">
+          <h2>Problème de livraison du code</h2>
+          <p>Ton code n'est pas arrivé, il est incomplet ou il ne fonctionne pas ? Voici les situations les plus fréquentes.</p>
+        </div>
+
+        <div class="faq">
+          <details class="faq-item" open>
+            <summary>Comment se passe le paiement ?</summary>
+            <p>Après l'envoi de ta demande, le montant de ton offre s'affiche avec les instructions de virement. Le code est livré une fois le paiement reçu.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Je n'ai pas reçu mon code</summary>
+            <p>Vérifie tes spams et l'onglet Promotions de ta boîte mail. Le code est envoyé à l'adresse indiquée dans ta demande. S'il n'est pas arrivé dans le délai choisi, signale-le avec le formulaire ci-dessous.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Le fichier est vide ou incomplet</summary>
+            <p>Indique précisément ce qui manque, avec le titre de ton projet. Nous vérifions le fichier et te renvoyons une version complète.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Le code ne fonctionne pas chez moi</summary>
+            <p>Si ton code est composé de plusieurs fichiers, vérifie qu'ils sont dans le même dossier et que leurs noms n'ont pas été modifiés. Copie ensuite le message d'erreur exact et envoie-le-nous.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Je veux modifier le code livré</summary>
+            <p>Décris la modification souhaitée dans le formulaire. Nous te confirmerons si elle est incluse ou si elle fait l'objet d'une nouvelle demande.</p>
+          </details>
+        </div>
+
+        <h3 class="form-title">Signaler un problème</h3>
+
+        <form class="request-form" id="formulaire-livraison" action="https://formspree.io/f/xgaanjdb" method="POST">
+          <input type="hidden" name="_subject" value="Problème de livraison - sozaku code">
+
+          <div class="field">
+            <label for="liv-nom">Nom complet</label>
+            <input type="text" id="liv-nom" name="nom" placeholder="Ton nom" required>
+          </div>
+
+          <div class="field">
+            <label for="liv-email">Email</label>
+            <input type="email" id="liv-email" name="email" placeholder="L'adresse utilisée pour ta demande" required>
+          </div>
+
+          <div class="field">
+            <label for="liv-projet">Titre du projet</label>
+            <input type="text" id="liv-projet" name="projet" placeholder="Pour retrouver ta demande" required>
+          </div>
+
+          <div class="field">
+            <label for="liv-probleme">Type de problème</label>
+            <select id="liv-probleme" name="probleme" required>
+              <option value="" disabled selected>-- Choisir --</option>
+              <option value="Code non reçu">Code non reçu</option>
+              <option value="Fichier vide ou incomplet">Fichier vide ou incomplet</option>
+              <option value="Le code ne fonctionne pas">Le code ne fonctionne pas</option>
+              <option value="Autre problème">Autre problème</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="liv-message">Description</label>
+            <textarea id="liv-message" name="message" rows="5" placeholder="Décris le problème le plus précisément possible, avec le message d'erreur s'il y en a un." required></textarea>
+          </div>
+
+          <!-- Champ anti-spam : invisible pour les visiteurs -->
+          <input type="text" name="_gotcha" class="pot-de-miel" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <button type="submit" class="btn btn-full" id="bouton-livraison">Envoyer le signalement</button>
+          <p class="form-status" id="statut-livraison" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="annee"></span> sozaku code. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
