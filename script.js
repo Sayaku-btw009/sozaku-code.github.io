@@ -6,9 +6,6 @@
 // ============================================================
 const DEVISE = 'MAD';
 
-// Affiché quand il n'y a pas de lien de paiement en ligne
-const INSTRUCTIONS_PAIEMENT = "Tu peux régler par virement bancaire. Je t'envoie mes coordonnées bancaires par email, en indiquant le titre de ton projet en référence.";
-
 const OFFRES = [
   {
     id: 'html-css',
