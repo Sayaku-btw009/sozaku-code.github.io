@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
   <header class="site-header">
     <div class="container header-inner">
@@ -86,7 +87,7 @@
           <li class="step">
             <span class="step-num">02</span>
             <h3>Tu règles ton projet</h3>
-            <p>Après ta demande, les instructions de paiement s'affichent avec le montant à régler.</p>
+            <p>Après ta demande, tu règles en ligne ou par virement, selon l'offre choisie.</p>
           </li>
           <li class="step">
             <span class="step-num">03</span>
@@ -115,7 +116,7 @@
           <p>Plus ta description est précise, plus le résultat sera proche de ce que tu imagines.</p>
         </div>
 
-        <form class="request-form" id="formulaire" action="https://formspree.io" method="POST">
+        <form class="request-form" id="formulaire" action="https://formspree.io/f/xgaanjdb" method="POST">
           <input type="hidden" name="_subject" value="Nouvelle demande de projet - sozaku code">
 
           <div class="field">
@@ -168,7 +169,7 @@
           <h3>Paiement</h3>
           <p id="texte-paiement"></p>
           <a href="#" class="btn btn-full" id="lien-paiement" target="_blank" rel="noopener" hidden>Payer maintenant</a>
-          <p class="payment-note">Le paiement se fait par virement bancaire. Nous ne te demanderons jamais tes coordonnées bancaires par email.</p>
+          <p class="payment-note">Le paiement se fait sur une page sécurisée ou par virement bancaire. Nous ne te demanderons jamais tes coordonnées bancaires par email.</p>
         </div>
       </div>
     </section>
@@ -183,7 +184,7 @@
         <div class="faq">
           <details class="faq-item" open>
             <summary>Comment se passe le paiement ?</summary>
-            <p>Après l'envoi de ta demande, le montant de ton offre s'affiche avec les instructions de virement. Le code est livré une fois le paiement reçu.</p>
+            <p>Après l'envoi de ta demande, le montant de ton offre s'affiche avec un bouton de paiement sécurisé ou les instructions de virement. Le code est livré une fois le paiement reçu.</p>
           </details>
 
           <details class="faq-item">
@@ -243,22 +244,4 @@
             <textarea id="liv-message" name="message" rows="5" placeholder="Décris le problème le plus précisément possible, avec le message d'erreur s'il y en a un." required></textarea>
           </div>
 
-          <!-- Champ anti-spam : invisible pour les visiteurs -->
-          <input type="text" name="_gotcha" class="pot-de-miel" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-          <button type="submit" class="btn btn-full" id="bouton-livraison">Envoyer le signalement</button>
-          <p class="form-status" id="statut-livraison" role="status" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="annee"></span> sozaku code. Tous droits réservés.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+          <!-- Champ anti-spam : invisible pour les visiteurs
