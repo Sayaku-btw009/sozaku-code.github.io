@@ -2,8 +2,7 @@
 // 1. CONFIGURATION : devise, prix et paiement
 //    Modifie uniquement ce bloc pour changer les tarifs.
 //    Les prix sont indicatifs : ajuste-les selon ton expérience.
-//    lienPaiement : laisse '' si tu n'as pas de lien de paiement
-//    en ligne. Le client verra alors les instructions ci-dessous.
+//    lienPaiement : laisse '' si l'offre se paie par virement.
 // ============================================================
 const DEVISE = 'MAD';
 
@@ -16,7 +15,8 @@ const OFFRES = [
     label: 'HTML / CSS',
     description: "Création de pages et mise en forme d'un site web.",
     prix: 1500,
-    lienPaiement: '',
+    // LIEN DE TEST Stripe : à remplacer par le lien en mode live avant la mise en ligne
+    lienPaiement: 'https://buy.stripe.com/test_cNi9AL39t34w0cL09K0Jq00',
   },
   {
     id: 'javascript',
