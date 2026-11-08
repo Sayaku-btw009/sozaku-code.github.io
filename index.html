@@ -244,4 +244,22 @@
             <textarea id="liv-message" name="message" rows="5" placeholder="Décris le problème le plus précisément possible, avec le message d'erreur s'il y en a un." required></textarea>
           </div>
 
-          <!-- Champ anti-spam : invisible pour les visiteurs
+          <!-- Champ anti-spam : invisible pour les visiteurs -->
+          <input type="text" name="_gotcha" class="pot-de-miel" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <button type="submit" class="btn btn-full" id="bouton-livraison">Envoyer le signalement</button>
+          <p class="form-status" id="statut-livraison" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="annee"></span> sozaku code. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
