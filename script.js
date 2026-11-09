@@ -11,7 +11,7 @@ const OFFRES = [
     id: 'html-css',
     label: 'HTML / CSS',
     description: "Création de pages et mise en forme d'un site web.",
-    prix: 1500,
+    prix: 2000,
     // LIEN DE TEST Stripe : à remplacer par le lien en mode live avant la mise en ligne
     lienPaiement: 'https://buy.stripe.com/test_cNi9AL39t34w0cL09K0Jq00',
   },
@@ -19,7 +19,7 @@ const OFFRES = [
     id: 'javascript',
     label: 'JavaScript',
     description: 'Boutons, formulaires et comportements interactifs.',
-    prix: 2000,
+    prix: 1700,
     lienPaiement: '',
   },
   {
