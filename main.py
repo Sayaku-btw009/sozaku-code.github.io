@@ -7,8 +7,8 @@ app = FastAPI(title="sozaku code API")
 # Les prix sont définis ici, sur le serveur.
 # Le navigateur ne peut pas les modifier.
 OFFRES = {
-    "html-css": {"label": "HTML / CSS", "prix": 1500},
-    "javascript": {"label": "JavaScript", "prix": 2000},
+    "html-css": {"label": "HTML / CSS", "prix": 2000},
+    "javascript": {"label": "JavaScript", "prix": 1700},
     "python": {"label": "Python", "prix": 2500},
 }
 
